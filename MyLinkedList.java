@@ -39,7 +39,11 @@ public class MyLinkedList{
     n.setNext(temp);
   }
   public String get(int index){
-    return "";
+    Node current = start;
+    for(int i = 0; i < index; i++){
+      current = current.getNext();
+    }
+    return current.getData();
   }
   public String set(int index, String value){
     return "";
