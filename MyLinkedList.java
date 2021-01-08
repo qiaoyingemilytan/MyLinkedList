@@ -121,6 +121,7 @@ public class MyLinkedList{
     }
     else if(size == 1){
       start = null;
+      end = null;
     }
     else{
       Node current = start;
