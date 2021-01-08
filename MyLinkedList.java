@@ -19,16 +19,24 @@ public class MyLinkedList{
     }
     else{
       Node temp = end;
-      end.setNext(n);
       end = n;
       end.setNext(null);
-      n.setNext(temp);
+      n = temp;
+      n.setNext(end);
     }
     size++;
     return true;
   }
 
   public void add(int index, String value){
+    Node n = new Node(value);
+    Node current = start;
+    for(int i = 0; i < index; i++){
+      current = current.getNext();
+    }
+    Node temp = current;
+    n.setPrev(current.getPrev());
+    n.setNext(temp);
   }
   public String get(int index){
     return "";
