@@ -37,6 +37,7 @@ public class MyLinkedList{
     Node temp = current;
     n.setPrev(current.getPrev());
     n.setNext(temp);
+    size ++;
   }
   public String get(int index){
     Node current = start;
@@ -55,7 +56,12 @@ public class MyLinkedList{
     return current.getData();
   }
   public String toString(){
-    return "";
+    String list = "[";
+    Node current = start;
+    for(int i = 0; i < size; i++){
+      current = current.getNext();
+    }
+    return list + "]";
   }
  //Any helper method that returns a Node object MUST BE PRIVATE!
 }
