@@ -46,7 +46,13 @@ public class MyLinkedList{
     return current.getData();
   }
   public String set(int index, String value){
-    return "";
+    Node n = new Node(value);
+    Node current = start;
+    for(int i = 0; i < index; i++){
+      current = current.getNext();
+    }
+    n = current;
+    return current.getData();
   }
   public String toString(){
     return "";
