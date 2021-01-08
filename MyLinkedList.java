@@ -59,15 +59,15 @@ public class MyLinkedList{
       for(int i = 0; i < index; i++){
         current = current.getNext();
       }
-
       n.setPrev(current.getPrev());
       n.setNext(current);
       current.getPrev().setNext(n);
     }
     size ++;
   }
+
   public String get(int index){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index is out of bounds");
     }
     Node current = start;
@@ -76,8 +76,9 @@ public class MyLinkedList{
     }
     return current.getData();
   }
+
   public String set(int index, String value){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index is out of bounds");
     }
     Node n = new Node(value);
@@ -91,6 +92,7 @@ public class MyLinkedList{
     current.getNext().setPrev(n);
     return current.getData();
   }
+
   public String toString(){
     String list = "[";
     Node current = start;
@@ -103,5 +105,5 @@ public class MyLinkedList{
     }
     return list + "]";
   }
- //Any helper method that returns a Node object MUST BE PRIVATE!
+
 }
