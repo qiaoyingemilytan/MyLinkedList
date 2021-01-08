@@ -36,13 +36,34 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("Index is out of bounds");
     }
     Node n = new Node(value);
-    Node current = start;
-    for(int i = 0; i < index; i++){
-      current = current.getNext();
+    if(size == 0){
+      start = n;
+      end = n;
+      n.setPrev(null);
+      n.setNext(null);
     }
-    Node temp = current;
-    n.setPrev(current.getPrev());
-    n.setNext(temp);
+    else if(index == 0){
+      n.setNext(start);
+      n.setPrev(null);
+      start.setPrev(n);
+      start = n;
+    }
+    else if(index == size){
+      n.setPrev(end);
+      n.setNext(null);
+      end.setNext(n);
+      end = n;
+    }
+    else{
+      Node current = start;
+      for(int i = 0; i < index; i++){
+        current = current.getNext();
+      }
+
+      n.setPrev(current.getPrev());
+      n.setNext(current);
+      current.getPrev().setNext(n);
+    }
     size ++;
   }
   public String get(int index){
