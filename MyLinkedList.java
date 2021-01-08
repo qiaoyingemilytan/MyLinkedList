@@ -18,6 +18,9 @@ public class MyLinkedList{
       n.setNext(null);
     }
     else{
+      n.setPrev(end);
+      end.setNext(n);
+      end = n;
       Node temp = end;
       end = n;
       end.setNext(null);
@@ -29,6 +32,9 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index is out of bounds");
+    }
     Node n = new Node(value);
     Node current = start;
     for(int i = 0; i < index; i++){
