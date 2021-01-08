@@ -65,6 +65,10 @@ public class MyLinkedList{
     String list = "[";
     Node current = start;
     for(int i = 0; i < size; i++){
+      list = list + current.getData();
+      if(i != size - 1){
+        list += ", ";
+      }
       current = current.getNext();
     }
     return list + "]";
