@@ -152,4 +152,17 @@ public class MyLinkedList{
     other.size = 0;
   }
 
+  public String toStringReversed(){
+    String list = "[";
+    Node current = end;
+    for(int i = 0; i < size; i++){
+      list = list + current.getData();
+      if(i != size - 1){
+        list += ", ";
+      }
+      current = current.getPrev();
+    }
+    return list + "]";
+  }
+
 }
