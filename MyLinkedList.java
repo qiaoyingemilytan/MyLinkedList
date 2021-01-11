@@ -111,17 +111,17 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("Index is out of bounds");
     }
     String removed = start.getData();
-    if(index == 0){
-      start.getNext().setPrev(null);
-      start = start.getNext();
+    if(size == 1){
+      start = null;
+      end = null;
     }
     else if(index == size - 1){
       end.getPrev().setNext(null);
       end = end.getPrev();
     }
-    else if(size == 1){
-      start = null;
-      end = null;
+    else if(index == 0){
+      start.getNext().setPrev(null);
+      start = start.getNext();
     }
     else{
       Node current = start;
@@ -133,6 +133,15 @@ public class MyLinkedList{
     }
     size--;
     return removed;
+  }
+
+  public void extend(MyLinkedList other){
+    end.setNext(other.start);
+    other.start.setPrev(end);
+    end = other.end;
+
+    size += other.size();
+    other.size = 0;
   }
 
 }
